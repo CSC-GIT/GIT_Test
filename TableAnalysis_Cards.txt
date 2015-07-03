@@ -1,7 +1,11 @@
 				Cards
 
 
-
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 S.No.		Table			Column		Value
 
+<<<<<<< HEAD
 1.		aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+=======
+1.		
+>>>>>>> 3de29f005e6610b44d8b173d38a45fdc0001ddfd
