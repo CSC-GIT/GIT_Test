@@ -1,0 +1,27 @@
+
+1.AcctInfoDDAINS		   Column Difference (Server hangs-not responding while validating)
+
+3.ADDACCTINFODDAINS		   Code generation failed
+
+4.ADDACCTINFOTDAINS	           Could not trace the error
+
+5.DepositorInfoExtINS		   Table not available (BITDF_DF_TABLE_DATA)
+		    		
+6.InterDayTranData		   Table not available (BTTFM_TXNS_DATA)	
+
+7.ProdCdCnv			   Code generation failed
+
+8.RelGlobalINS			   Could not trace the error
+
+
+
+
+
+Cards:
+
+
+DCTIK_TXNHST_MCC_CH
+DCTJO_POST_ACTION_CH
+PREL table not matching
+
+		
