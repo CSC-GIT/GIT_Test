@@ -1,0 +1,15 @@
+XQE-DAT-0001 Data source adapter error: java.sql.SQLException: Could not create ResultSet: Required field 'type' is unset! Struct:TPrimitiveTypeEntry(type:null) - when processing query:
+
+
+
+
+XQE-DAT-0001
+Data source adapter error: java.sql.SQLException: 
+Could not create ResultSet: Required field 'type' is unset! 
+Struct:TPrimitiveTypeEntry(type:null) - when processing query:
+
+
+
+
+
+POST_BAL cannot find.
