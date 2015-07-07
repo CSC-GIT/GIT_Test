@@ -1,0 +1,122 @@
+Hive				Old
+
+				
+dctgn_xchg_genrfin_ch		DCTAC_DCTGN
+dctik_txnhst_mcc_ch		DCTIK_TXNHST_MCC_CH
+dctix_xchg_visafin_ch		DCTIX_XCHG_VISAFIN_CH
+dctj1_post_bal_tb_ch		DCTAC_DCTJ1             		
+dctmp_xchg_mci_fin_ch		DCTMP_XCHG_MCI_FIN_CH
+dctpi_prop_txn_ch		DCTPI_PROP_TXN_CH
+dctpo_atm_pos_tran_ch		DCTPO_ATM_POS_TRAN_CH   
+
+
+
+
+
+
+REQUIRED RELATIONSHIPS, AS PRESENT IN OLD FM MODEL:
+
+
+pcdbankdetails			PCDBANKDETAILS		PCDBANKDETAILS		Y
+dctac_account_ch		DCTAC			DCTAC			Y
+dctee_ec_info_ch		DCTEE_EC_INFO_CH	DCTEE			Y
+dctjo_post_action_ch		DCTJO_POST_ACTION_CH	DCTAC_DCTJO		Y
+dctpl_plastic_ch		DCTPL_PLASTIC_CH	PLASTIC			Y
+dctsa_susp_acty_ch		DCTSA_SUSP_ACTY_CH      DCTSA			Y
+prel				PREL			PREL			Y
+
+
+
+
+Relations:
+
+1. pcdbankdetails relations:
+
+PCDBANKDETAILS<>DCTAC (pcdbankdetails<>dctac_account_ch)
+1:1		1:n
+CISDW.PCDBANKDETAILS.BANKCOID = ACCOUNT AREA.DCTAC.COID 
+
+
+PCDBANKDETAILS<>PREL (pcdbankdetails<>prel)
+1:1		1:1
+CISDW.PCDBANKDETAILS.BANKCOID = PREL.COID 
+
+
+DCPL_DCTAC table not available
+
+
+
+2. dctac_account_ch relations:
+
+DCTAC<>PREL     (dctac_account_ch <> prel) 
+1:1     1:1
+PREL.COID = ACCOUNT AREA.DCTAC.COID AND PREL.SEGMENTATION1 = ACCOUNT AREA.DCTAC.SEGMENTATION1 
+AND PREL.SEGMENTATION2 = ACCOUNT AREA.DCTAC.SEGMENTATION2 AND PREL.SEGMENTATION3 = ACCOUNT AREA.DCTAC.SEGMENTATION3 
+
+
+DCTAC<>PLASTIC  (dctac_account_ch<>dctpl_plastic_ch)
+1:1	0:n
+ACCOUNT AREA.DCTAC.ACCTINTERNALID = ACCOUNT AREA.PLASTIC.ACCTINTERNALID 
+AND ACCOUNT AREA.DCTAC.GRPINTERNALID = ACCOUNT AREA.PLASTIC.GRPINTERNALID 
+
+
+DCTAC<>DCTAC_DCTJO	(dctac_account_ch<>dctjo_post_action_ch)
+1:1	1:n
+ACCOUNT AREA.DCTAC.GRPINTERNALID = ACCOUNT AREA.DCTAC_DCTJO.GROUPINTRNLID
+AND ACCOUNT AREA.DCTAC.ACCTINTERNALID = ACCOUNT AREA.DCTAC_DCTJO.ACCTINTERNALID 
+
+
+DCTAC<>DCTEE	(dctac_account_ch<>dctee_ec_info_ch)
+1:1	0:n
+ACCOUNT AREA.DCTAC.ACCTINTERNALID = ACCOUNT AREA.DCTEE.ACCTINTERNALID 
+AND ACCOUNT AREA.DCTAC.GRPINTERNALID = ACCOUNT AREA.DCTEE.GRPINTERNALID 	
+
+
+DCTAC<>PCDBANKDETAILS	(dctac_account_ch<>pcdbankdetails)
+already done above in dctac_account_ch relation
+
+
+
+3. dctee_ec_info_ch relations:
+
+DCTEE<>DCTAC		(dctee_ec_info_ch<>dctac_account_ch)
+already done above in dctac_account_ch relation	
+
+
+
+4. dctjo_post_action_ch	relations:
+
+DCTAC_DCTJO<>DCTAC	(dctjo_post_action_ch<>dctac_account_ch)
+already done above in dctac_account_ch relation
+
+
+
+5. dctpl_plastic_ch relations:
+
+PLASTIC<>DCTSA	(dctpl_plastic_ch<>dctsa_susp_acty_ch)
+1:1	0:n
+ACCOUNT AREA.PLASTIC.CARDNUM = ACCOUNT AREA.DCTSA.CARDNUM 
+
+
+DCTAC<>PLASTIC
+already done above in dctac_account_ch relation
+
+
+6. dctsa_susp_acty_ch relations:
+
+DCTSA<>PLASTIC	(dctsa_susp_acty_ch<>dctpl_plastic_ch)
+already done above in dcptl_plastic_ch relation.
+
+
+
+7. prel relations:
+
+PREL<>PCDBANKDETAILS	(prel<>pcdbankdetails)
+already done above in pcdbankdetails relations
+
+
+PREL<>DCTAC		(prel<>dctac_account_ch)
+already done above in dctac_account_ch relations
+
+
+
